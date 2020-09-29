@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBorrowersTable extends Migration
+class CreateApplicationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,15 +12,13 @@ class CreateBorrowersTable extends Migration
      */
     public function up()
     {
-        Schema::create('borrowers', function (Blueprint $table) {
+        Schema::create('applications', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('first_name');
-            $table->string('last_name');
-            $table->integer('job_id')->unsigned();
-            $table->integer('bank_accounts_id')->unsigned()->nullable();
+            $table->integer('borrower_id')->unsigned();
             $table->softDeletes();
             $table->timestamps();
         });
+
     }
 
     /**
@@ -30,6 +28,6 @@ class CreateBorrowersTable extends Migration
      */
     public function down()
     {
-        Schema::drop('borrowers');
+        Schema::drop('applications');
     }
 }
