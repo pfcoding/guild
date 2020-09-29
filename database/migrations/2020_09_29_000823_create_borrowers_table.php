@@ -16,12 +16,10 @@ class CreateBorrowersTable extends Migration
             $table->increments('id');
             $table->string('first_name');
             $table->string('last_name');
-            $table->integer('bank_accounts_id');
+            $table->integer('job_id')->unsigned();
+            $table->integer('bank_accounts_id')->unsigned();
             $table->softDeletes();
             $table->timestamps();
-
-            $table->foreign('job_id')->references('id')->on('jobs');
-
         });
     }
 
