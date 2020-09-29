@@ -14,6 +14,7 @@ class CreateApplicationsTable extends Migration
     {
         Schema::create('applications', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('loan_application_id')->unsigned();
             $table->integer('borrower_id')->unsigned();
             $table->softDeletes();
             $table->timestamps();
